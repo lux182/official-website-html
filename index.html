@@ -1,260 +1,738 @@
-<!DOCTYPE html><html lang="zh-TW"><head><title>PC Partner</title>
-<meta name="keywords" content="PC Partner" />
-<meta name="description" content="PC Partner" />
-<meta http-equiv="content-language" content="zh-TW">
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/bootstrap.min.css"/>
-<link rel="stylesheet" href="css/bootstrap-xinqi.css"/>
-<link rel="stylesheet" href="css/animate.css"/>
-</head><body>
-<!--导航-->
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="" class="navbar-brand"><img alt="PC Partner Logo" width="200" height="70" src="images/xqb-logo.png" style="margin-right:20px;"></a>
-        </div>
-        <!--导航-->
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="#home">主頁</a></li>
-                <li><a href="#html5">關於我們</a></li>
-                <li><a href="#course">主要業務</a></li>
-                <li><a href="#contact">聯繫我們</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="javascript:;">電話:(852) 2799 8011</a></li>
-            </ul>
-        </div>
-        <!--导航-->
-    </div>
-</nav>
-<!--导航-->
-
-<!--home-->
-<section id="home">
-<div class="jumbotron banner wow fadeInRight"><div class="container">
-<h1>栢能集團有限公司</h1>
-<p>栢能科技集團 1997 年於香港成立，並由一家初期少於 300 名員工的合約生產商，發展成現在擁有國際知名的自我品牌集團，並於海外多處設有分部。</p>
-<p><a class="btn btn-success btn-lg" href="https://finance.yahoo.com/quote/1263.HK" role="button">PC PARTNER(1263.HK<span id="shijia"></span>)</a></p>
-</div></div>
-</section>
-<!--home-->
-
-<!--bbs-->
-<section id="bbs">
-    <div class="container">
-        <div class="row wow fadeInUp" data-wow-duration="0.5s">
-            <div class="col-md-4">
-                <a href="javascript:;">
-                    <img src="images/index-icon1.png" class="img-responsive" alt=""/>
-                    <h3>20 多年的知識和經驗累積</h3>
-                    <p>優質產品、創新設計、專業服務和實用的解決方案</p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>优品电商 - 专业的电商解决方案提供商</title>
+    <meta name="keywords" content="电商服务,电商运营,数字营销,IT解决方案,仓储物流,优品电商" />
+    <meta name="description" content="优品电商是专业的电商解决方案提供商，为品牌提供深度商业合作方案，涵盖店铺运营、数字营销、IT解决方案、仓储配送、客户服务等全链条服务" />
+    <meta http-equiv="content-language" content="zh-CN">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-xinqi.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333 !important;
+        }
+        
+        .navbar-nav > li > a {
+            color: #333 !important;
+            font-weight: 500;
+            padding: 20px 15px;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav > li > a:hover {
+            color: #007bff !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/banner.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .btn-hero {
+            background: #fff;
+            color: #667eea;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .btn-hero:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 60px;
+        }
+        
+        .about-section {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+        
+        .about-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .advantages-section {
+            padding: 100px 0;
+        }
+        
+        .advantage-item {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .advantage-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .advantage-icon {
+            font-size: 4em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .advantage-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .advantage-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .brands-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .brand-category {
+            margin-bottom: 40px;
+        }
+        
+        .brand-category h4 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .brand-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .brand-item {
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-weight: 500;
+        }
+        
+        .cases-section {
+            padding: 100px 0;
+        }
+        
+        .case-item {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+        
+        .case-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .case-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+        }
+        
+        .case-content {
+            padding: 25px;
+        }
+        
+        .case-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .case-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .contact-section {
+            padding: 80px 0;
+            background: #333;
+            color: white;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info h5 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            background: #222;
+            color: #999;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .language-switch {
+            margin-left: 20px;
+        }
+        
+        .language-switch a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        
+        .language-switch a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="" class="navbar-brand">
+                    <i class="fas fa-chart-line"></i> 优品电商
                 </a>
             </div>
-            <div class="col-md-4">
-                <a href="javascript:;">
-                    <img src="images/index-icon2.png" class="img-responsive" alt=""/>
-                    <h3>端到端服務</h3>
-                    <p>從提供產品規劃到售後服務，我們管理並加速所有生產流程</p>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="javascript:;">
-                    <img src="images/index-icon3.png" class="img-responsive" alt=""/>
-                    <h3>迅速支援</h3>
-                    <p>在美洲、歐洲和亞太地區的重要城市皆設有辦事處</p>
-                </a>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#home">首页</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#cases">成功案例</a></li>
+                    <li><a href="#business">我们的业务</a></li>
+                    <li><a href="#team">我们的团队</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="language-switch">
+                        <a href="#">中文</a>
+                        <a href="#">English</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
-<!--bbs-->
+    </nav>
 
-<!--html5-->
-<section id="html5">
-    <div class="container">
-        <div class="col-md-7 wow fadeInLeft">
-            <h2>您可信賴的業界領導者</h2>
-            <p>集團堅持不懈地引進創新產品意念及先進科技，確保我們能以最強的競爭力服務我們的客戶。</p>
-            <p><span class="glyphicon glyphicon-grain mai-icon"></span>1997年，栢能科技集團在香港成立<br>1998年，獲頒 ISO 9001 品質體系統認證<br>2006年，推出自我開發品牌 ZOTAC（索泰）圖像顯示卡</p>
-            <p><span class="glyphicon glyphicon-grain mai-icon"></span>2011年，收購亞之傑（ASK）及萬利達（Manli）集團<br>2012年，於香港聯合交易所主板上市<br>2019年，在中國成立雲端運算的合資公司</p>
-        </div>
-        <div class="col-md-5 wow fadeInRight">
-            <img src="images/xcxyhs.png" class="img-responsive" alt=""/>
-        </div>
-    </div>
-</section>
-<!--html5-->
-
-<!--bootstrap-->
-<section id="bootstrap">
-    <div class="container wow fadeInUp">
-        <div class="col-md-6">
-            <img src="images/xcxqygw.png" class="img-responsive" alt=""/>
-        </div>
-        <div class="col-md-6">
-            <h2>為您提供綜合解決方案</h2>
-            <p>我們不斷跟客戶保持緊密聯繫，開發嶄新、高質素的產品及技術，以滿足市場的需要，使我們站穩行業的先驅位置。</p>
-            <p><span class="glyphicon glyphicon-grain mai-icon"></span>協助你從零開始的建立產品<br>積極參與產品策略規劃，並根據你的需求和業務目標來制定產品概念。透過我們豐富的技能和經驗，為你構思並打造能與同類型產品正面競爭的獨特成品。</p>
-            <p><span class="glyphicon glyphicon-grain mai-icon"></span>建立並管理強大的可持續供應鏈<br>透過強大的全球分銷網絡、頂尖的產品分析和風險管理、以及快速投放市場，從而讓你的產品以最小成本推出於全球市場。</p>
-        </div>
-    </div>
-</section>
-<!--bootstrap-->
-
-<!--course-->
-<section id="course">
-    <div class="container">
-        <div class="row wow fadeIn" data-wow-delay="0.6s">
-            <div class="col-md-12">
-                <h2>主要業務</h2>
-            </div>
-            <div class="col-md-3">
-                <div class="course">
-                    <img class="case-img" src="images/case1.png" data-src="images/case1-xcxcode.jpg" class="img-responsive" alt="消費電子產品" title="消費電子產品" />
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="course">
-                    <img class="case-img" src="images/case14.png" data-src="images/case14-xcxcode.jpg" class="img-responsive" alt="企業雲端解決方案" title="企業雲端解決方案" />
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="course">
-                    <img class="case-img" src="images/case16.png" data-src="images/case16-xcxcode.jpg" class="img-responsive" alt="遊戲娛樂" title="遊戲娛樂" />
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="course">
-                    <img class="case-img" src="images/case17.png" data-src="images/case17-xcxcode.jpg" class="img-responsive" alt="物聯網 （IoT）" title="物聯網 （IoT）" />
+    <!-- 首页横幅 -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row hero-content">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h1 class="hero-title wow fadeInUp">优品电商</h1>
+                    <p class="hero-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        中国品牌深入合作电子商务伙伴和领先的电商大数据研发及解决方案公司
+                    </p>
+                    <a href="#about" class="btn btn-hero wow fadeInUp" data-wow-delay="0.4s">
+                        了解更多
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!--course-->
+    </section>
 
-<!--contact-->
-<section id="contact">
-    <div class="lvjing">
+    <!-- 关于我们 -->
+    <section id="about" class="about-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-7 wow fadeInLeft animated">
-                    <h2>
-                        <span class="glyphicon glyphicon-send"></span>
-                        &nbsp;
-                        聯繫我們
-                    </h2>
-                    <p>
-                        栢能科技集團 1997 年於香港成立，以卓越的研發能力和頂尖生產技術，屹立於行業前列地位。我們產品線多元化，現已擴展到圖像顯示卡、迷你電腦、主機板、嵌入式系統及電競硬件等多種產品類別。同時，栢能亦為世界知名品牌提供一站式的電子專業製造服務（EMS）。
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">关于我们</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        专业的电商解决方案提供商
                     </p>
-                    <address>
-                        <p>
-                            <span class="glyphicon glyphicon-map-marker"></span>
-                            &nbsp;
-                            地址: 香港新界沙田火炭山尾街18-24號沙田商業中心19樓
-                        </p>
-                        <p>
-                            <span class="glyphicon glyphicon-earphone"></span>
-                            &nbsp;
-                            電話: (852) 2799 8011
-                        </p>
-                        <p>
-                            <span class="glyphicon glyphicon-envelope"></span>
-                            &nbsp;
-                            電郵: <a href="mailto:inquiry@pcpartner.com" target="_blank">inquiry@pcpartner.com</a>
-                        </p>
-                    </address>
                 </div>
-                <div class="col-md-5 wow fadeInRight animated">
-                    <img align="right" src="images/contactus.png" class="img-responsive" alt="聯繫我們"/>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="about-content wow fadeInUp" data-wow-delay="0.4s">
+                        <p>成立于2020年，总部位于北京并建立上海分部。</p>
+                        <p>优品电商以电子商务为核心为品牌提供深度的商业合作方案，一站式为店铺运营、数字营销、IT解决方案、仓储配送、客户服务等制定商业方案。覆盖从品牌官方商城，到中国最大的电商平台（天猫与京东、社交移动商城、线下智能门店）等全渠道的构建。</p>
+                        <p>我们深入数字世界的大数据分析，并在各供应链深耕细作，为品牌提供深度解决方案，为消费者打造完美购物体验，构架起品牌与消费者之间的互通桥梁。</p>
+                        <div class="text-center" style="margin-top: 30px;">
+                            <a href="#business" class="btn btn-primary btn-lg">了解更多</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!--contact-->
+    </section>
 
-<!--footer-->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                &copy;&nbsp;Copyright PC Partner Group Limited. All Rights Reserved.
+    <!-- 我们的优势 -->
+    <section id="advantages" class="advantages-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">我们的优势</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        六大核心优势，助力品牌电商成功
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4 class="advantage-title">深度品牌合作</h4>
+                        <p class="advantage-desc">
+                            我们并非单纯的运营服务，我们深入了解品牌的形象与电商数据，深度携手。为每一个品牌配备专属的店长运营团队，专业的视觉设计团队和IT团队，以品牌的价值为基础导向，不断推进品牌的价值与形象。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4 class="advantage-title">数字营销</h4>
+                        <p class="advantage-desc">
+                            以销售为导向制定迎合方案，实现品销合一。从品牌的生意策略出发，以消费者生命周期推移为目标，充分挖掘用户在各个场景中的行为数据；以大数据为核心，以有销售力的创意为手段。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4 class="advantage-title">IT解决方案</h4>
+                        <p class="advantage-desc">
+                            从品牌到消费者终端的全渠道数字化商务解决方案和前端后台专业服务。覆盖多种用户触点，线上电商、品牌官方商城、移动应用以及线下门店的各种视觉支持。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4 class="advantage-title">全渠道</h4>
+                        <p class="advantage-desc">
+                            我们的运营服务涵盖全线渠道，包括平台店铺（如天猫、京东、唯品会、亚马逊等）、品牌官网、微信商城、O2O等全线渠道，聚焦消费者生命周期运营。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="advantage-title">客户服务</h4>
+                        <p class="advantage-desc">
+                            为品牌电商业务而生的新一代综合客户服务能力。除了满足一般意义的客户咨询，售后服务需求和投诉处理，我们的客户服务完全融入消费者与品牌互动的全过程。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4 class="advantage-title">仓储物流</h4>
+                        <p class="advantage-desc">
+                            完善的供应链管理系统，在以双11为代表的超大型电商促销活动中展现出出色的稳定性及效能，并得到了品牌的高度认可。覆盖全国范围内可提供最适合的物流解决方案。
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-<!--footer-->
+    </section>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!--<script src="js/jquery.singlePageNav.min.js"></script>-->
-<script src="js/wow.min.js"></script>
-<script>
-$(function(){
-    /*导航跳转效果插件*/
-    /*$('.nav').singlePageNav({
-        offset:70
-    });*/
-    /*小屏幕导航点击关闭菜单*/
-    /*$('.navbar-collapse a').click(function(){
-        $('.navbar-collapse').collapse('hide');
-    });*/
-    new WOW().init();
-    
-    //鼠标滑过图片切换
-    /* var oldImageUrl = '';
-    $('.case-img').hover(function(){
-        oldImageUrl = $(this).attr('src');
-        $(this).attr('src', $(this).attr('data-src')).fadeIn();
-    },
-    function(){
-        $(this).attr('src', oldImageUrl).fadeIn();
-    }); */
-});
-</script>
+    <!-- 合作品牌 -->
+    <section id="brands" class="brands-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">合作品牌</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        与众多知名品牌深度合作
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="brand-category wow fadeInUp" data-wow-delay="0.1s">
+                        <h4><i class="fas fa-mountain"></i> 户外运动</h4>
+                        <div class="brand-list">
+                            <span class="brand-item">Arcteryx</span>
+                            <span class="brand-item">Salomon</span>
+                            <span class="brand-item">Suunto</span>
+                            <span class="brand-item">Victorinox</span>
+                            <span class="brand-item">Wilson</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="brand-category wow fadeInUp" data-wow-delay="0.2s">
+                        <h4><i class="fas fa-baby"></i> 母婴生活</h4>
+                        <div class="brand-list">
+                            <span class="brand-item">Pigeon</span>
+                            <span class="brand-item">Graco</span>
+                            <span class="brand-item">MICRO</span>
+                            <span class="brand-item">KICK</span>
+                            <span class="brand-item">MAXI-COSI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="brand-category wow fadeInUp" data-wow-delay="0.3s">
+                        <h4><i class="fas fa-tshirt"></i> 时尚休闲</h4>
+                        <div class="brand-list">
+                            <span class="brand-item">CK</span>
+                            <span class="brand-item">LACOSTE</span>
+                            <span class="brand-item">FERRAGAMO</span>
+                            <span class="brand-item">MCM</span>
+                            <span class="brand-item">POLICE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script type="text/javascript" src="http://hq.sinajs.cn/list=hk01263" charset="gb2312"></script>
-<script type="text/javascript">
-function formatNum(num,n)
-{
-	//参数说明：num 要格式化的数字 n 保留小数位
-	num = String(num.toFixed(n));
-	var re = /(-?\d+)(\d{3})/;
-	while(re.test(num)) num = num.replace(re,"$1,$2")
-	return num;
-}
+    <!-- 成功案例 -->
+    <section id="cases" class="cases-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">成功案例</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        见证品牌电商成功之路
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="case-item wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="case-image">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div class="case-content">
+                            <h4 class="case-title">户外运动品牌运营</h4>
+                            <p class="case-desc">
+                                为知名户外运动品牌提供全渠道电商运营服务，实现销售额300%增长，客户满意度达98%。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="case-item wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="case-image">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <div class="case-content">
+                            <h4 class="case-title">母婴品牌数字化</h4>
+                            <p class="case-desc">
+                                帮助母婴品牌构建数字化营销体系，通过精准用户画像和个性化推荐，提升转化率150%。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="case-item wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="case-image">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="case-content">
+                            <h4 class="case-title">时尚品牌全渠道</h4>
+                            <p class="case-desc">
+                                为国际时尚品牌打造全渠道销售体系，整合线上线下资源，实现品牌价值最大化。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-var elements = hq_str_hk01263.split(",");
-var today_open=elements[2];
-var today_new=elements[6];
+    <!-- 我们的业务 -->
+    <section id="business" style="padding: 100px 0; background: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">我们的业务</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        一站式电商解决方案
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="advantage-item wow fadeInLeft">
+                        <div class="advantage-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h4 class="advantage-title">店铺运营</h4>
+                        <p class="advantage-desc">
+                            专业的店铺运营团队，从商品上架到活动策划，从客户服务到数据分析，全方位提升店铺业绩。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="advantage-item wow fadeInRight">
+                        <div class="advantage-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h4 class="advantage-title">数字营销</h4>
+                        <p class="advantage-desc">
+                            基于大数据的精准营销策略，通过社交媒体、搜索引擎、内容营销等多种渠道提升品牌影响力。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="advantage-item wow fadeInLeft">
+                        <div class="advantage-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4 class="advantage-title">IT解决方案</h4>
+                        <p class="advantage-desc">
+                            定制化的电商系统开发，包括官网建设、移动应用、ERP系统等，提升运营效率。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="advantage-item wow fadeInRight">
+                        <div class="advantage-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h4 class="advantage-title">仓储配送</h4>
+                        <p class="advantage-desc">
+                            智能化的仓储管理系统，全国多仓布局，确保快速准确的订单处理和配送服务。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-if (elements[2]=="0.000")
-{
-	today_open="--";
-}
+    <!-- 我们的团队 -->
+    <section id="team" style="padding: 100px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">我们的团队</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        专业团队，值得信赖
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="advantage-title">运营团队</h4>
+                        <p class="advantage-desc">
+                            经验丰富的电商运营专家，深谙各大平台规则，擅长店铺优化和业绩提升。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4 class="advantage-title">设计团队</h4>
+                        <p class="advantage-desc">
+                            专业的美术设计师和UI/UX专家，为品牌打造独特的视觉形象和用户体验。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="advantage-title">技术团队</h4>
+                        <p class="advantage-desc">
+                            资深的技术开发团队，精通前后端开发，为电商业务提供强有力的技术支撑。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="advantage-title">数据分析团队</h4>
+                        <p class="advantage-desc">
+                            专业的数据分析师，通过大数据挖掘，为业务决策提供科学依据。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-var change=formatNum(today_new-elements[3],3);
-var change_p=formatNum(change/elements[3]*100,3);
+    <!-- 联系我们 -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp" style="color: white;">联系我们</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s" style="color: #ccc;">
+                        期待与您的合作
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-info wow fadeInLeft">
+                        <h5><i class="fas fa-map-marker-alt"></i> 北京总部</h5>
+                        <p>地址：北京市朝阳区优品大厦</p>
+                        <p>电话：010-12345678</p>
+                        <p>邮编：100000</p>
+                        <p>邮箱：beijing@youpin.com</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-info wow fadeInRight">
+                        <h5><i class="fas fa-map-marker-alt"></i> 上海分部</h5>
+                        <p>地址：上海市徐汇区虹漕路461弄</p>
+                        <p>电话：021-12345678</p>
+                        <p>邮编：200233</p>
+                        <p>邮箱：shanghai@youpin.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center" style="margin-top: 40px;">
+                    <h5 style="color: #667eea;">微信公众号</h5>
+                    <p>关注我们的微信公众号，获取最新资讯</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-$("#shijia").html(" 市價:" + today_new);
-/* document.write("股票英文："+elements[0]+"<br/>");
-document.write("股票名称："+elements[1]+"<br/>");
-document.write("今开盘："+today_open+"<br/>");
-document.write("昨收盘："+elements[3]+"<br/>");
-document.write("最新价："+today_new+"<br/>");
-document.write("升跌："+change+"<br/>");
-document.write("升跌%："+change_p+" %<br/>");
-document.write("成交价："+elements[10]+" HK$<br/>");
-document.write("成交量："+elements[12]+" 股<br/>");
-document.write("更新日期："+elements[17]+"<br/>");
-document.write("更新时间："+elements[18]+"<br/>"); */
-</script>
-</body></html>
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright © 2024 优品电商 Co. Ltd. All Rights Reserved. 优品电子商务有限公司 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        $(function(){
+            new WOW().init();
+            
+            // 平滑滚动
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if( target.length ) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 70
+                    }, 1000);
+                }
+            });
+            
+            // 导航栏激活状态
+            $(window).scroll(function() {
+                var scrollTop = $(window).scrollTop();
+                $('section').each(function() {
+                    var topDistance = $(this).offset().top - 100;
+                    if (scrollTop > topDistance) {
+                        var sectionId = $(this).attr('id');
+                        $('nav li').removeClass('active');
+                        $('nav li a[href="#' + sectionId + '"]').parent().addClass('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
