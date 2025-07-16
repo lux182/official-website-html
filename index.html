@@ -13,203 +13,397 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans CJK JP', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #fafafa;
         }
         
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             border: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            min-height: 60px;
+            backdrop-filter: blur(10px);
         }
         
         .navbar-brand {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333 !important;
+            font-size: 22px;
+            font-weight: 300;
+            color: #34495e !important;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 15px;
+            letter-spacing: 1px;
         }
         
         .navbar-nav > li > a {
-            color: #333 !important;
-            font-weight: 500;
-            padding: 20px 15px;
-            transition: color 0.3s;
+            color: #34495e !important;
+            font-weight: 400;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 15px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
         }
         
         .navbar-nav > li > a:hover {
-            color: #007bff !important;
+            color: #3498db !important;
+            background-color: transparent;
+        }
+        
+        .navbar-nav.navbar-right > li > a {
+            padding: 0 10px;
         }
         
         .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #e8f4fd 0%, #f0f8ff 50%, #e6f3ff 100%);
+            color: #2c3e50;
+            padding: 0;
             position: relative;
+            overflow: hidden;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            height: 700px;
             overflow: hidden;
         }
         
-        .hero-section::before {
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-slide::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('images/banner.jpg') center/cover;
-            opacity: 0.1;
+            background: rgba(44, 62, 80, 0.3);
             z-index: 1;
         }
         
         .hero-content {
             position: relative;
             z-index: 2;
+            padding: 120px 0;
         }
         
         .hero-title {
-            font-size: 3.5em;
-            font-weight: bold;
+            font-size: 4.5em;
+            font-weight: 200;
             margin-bottom: 30px;
+            color: white;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .hero-subtitle {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            opacity: 0.9;
+            font-size: 1.5em;
+            margin-bottom: 50px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.8;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
         
         .btn-hero {
-            background: #fff;
-            color: #667eea;
+            background: #3498db;
+            color: white;
             border: none;
-            padding: 15px 40px;
+            padding: 18px 50px;
             font-size: 1.1em;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: all 0.3s;
+            font-weight: 400;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
         }
         
         .btn-hero:hover {
-            background: #f8f9fa;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+            color: white;
+        }
+        
+        .hero-stats {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-number {
+            font-size: 2.8em;
+            font-weight: 200;
+            display: block;
+            margin-bottom: 10px;
+            color: #3498db;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .hero-stat-label {
+            font-size: 1.1em;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-indicator.active {
+            background: #3498db;
+            transform: scale(1.2);
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .carousel-nav:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-prev {
+            left: 30px;
+        }
+        
+        .carousel-next {
+            right: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: 500px;
+            }
+            
+            .hero-carousel {
+                height: 500px;
+            }
+            
+            .hero-title {
+                font-size: 2.8em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2em;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .hero-stat-number {
+                font-size: 2.2em;
+            }
+            
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+            
+            .carousel-prev {
+                left: 15px;
+            }
+            
+            .carousel-next {
+                right: 15px;
+            }
+            
+            .carousel-indicators {
+                bottom: 20px;
+            }
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #333;
+            font-size: 2.2em;
+            font-weight: 200;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            letter-spacing: 1px;
         }
         
         .section-subtitle {
             text-align: center;
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 60px;
+            font-size: 1.1em;
+            color: #7f8c8d;
+            margin-bottom: 50px;
+            font-weight: 300;
         }
         
         .about-section {
-            padding: 100px 0;
-            background: #f8f9fa;
+            padding: 80px 0;
+            background: #ffffff;
         }
         
         .about-content {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #555;
+            font-size: 1.05em;
+            line-height: 1.9;
+            color: #34495e;
+            font-weight: 300;
         }
         
         .advantages-section {
-            padding: 100px 0;
-        }
-        
-        .advantage-item {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .advantage-item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .advantage-icon {
-            font-size: 4em;
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-        
-        .advantage-title {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .advantage-desc {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        .brands-section {
             padding: 80px 0;
             background: #f8f9fa;
         }
         
+        .advantage-item {
+            text-align: center;
+            padding: 35px 25px;
+            margin-bottom: 25px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f2f6;
+        }
+        
+        .advantage-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .advantage-icon {
+            font-size: 3em;
+            color: #3498db;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .advantage-title {
+            font-size: 1.3em;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: #2c3e50;
+            letter-spacing: 0.5px;
+        }
+        
+        .advantage-desc {
+            color: #7f8c8d;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        .brands-section {
+            padding: 70px 0;
+            background: #ffffff;
+        }
+        
         .brand-category {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
         
         .brand-category h4 {
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 18px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
         
         .brand-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
         }
         
         .brand-item {
-            background: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            font-weight: 500;
+            background: #f8f9fa;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 300;
+            color: #34495e;
+            border: 1px solid #e9ecef;
+            font-size: 0.9em;
         }
         
         .cases-section {
-            padding: 100px 0;
+            padding: 80px 0;
+            background: #f8f9fa;
         }
         
         .case-item {
             background: #fff;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            transition: transform 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid #f1f2f6;
         }
         
         .case-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
         .case-image {
-            height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            height: 180px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2em;
+            font-size: 1.8em;
+            opacity: 0.9;
         }
         
         .case-content {
@@ -217,56 +411,78 @@
         }
         
         .case-title {
-            font-size: 1.3em;
-            font-weight: bold;
+            font-size: 1.2em;
+            font-weight: 400;
             margin-bottom: 10px;
-            color: #333;
+            color: #2c3e50;
+            letter-spacing: 0.3px;
         }
         
         .case-desc {
-            color: #666;
-            line-height: 1.6;
+            color: #7f8c8d;
+            line-height: 1.7;
+            font-weight: 300;
         }
         
         .contact-section {
-            padding: 80px 0;
-            background: #333;
+            padding: 70px 0;
+            background: #34495e;
             color: white;
         }
         
         .contact-info {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .contact-info h5 {
-            color: #667eea;
-            margin-bottom: 15px;
+            color: #3498db;
+            margin-bottom: 12px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
         
         .contact-info p {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             opacity: 0.9;
+            font-weight: 300;
+            line-height: 1.6;
         }
         
         .footer {
-            background: #222;
-            color: #999;
-            padding: 30px 0;
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 25px 0;
             text-align: center;
+            font-weight: 300;
         }
         
-        .language-switch {
-            margin-left: 20px;
+        /* 业务和团队部分的样式调整 */
+        #business {
+            padding: 80px 0;
+            background: #ffffff;
         }
         
-        .language-switch a {
-            color: #333;
-            text-decoration: none;
-            margin-left: 10px;
+        #team {
+            padding: 80px 0;
+            background: #f8f9fa;
         }
         
-        .language-switch a:hover {
-            color: #007bff;
+        /* 按钮样式统一 */
+        .btn-primary {
+            background: #3498db;
+            border-color: #3498db;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+            border-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
         }
     </style>
 </head>
@@ -275,11 +491,6 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a href="" class="navbar-brand">
                     <i class="fas fa-chart-line"></i> 优品电商
                 </a>
@@ -294,10 +505,8 @@
                     <li><a href="#contact">联系我们</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="language-switch">
-                        <a href="#">中文</a>
-                        <a href="#">English</a>
-                    </li>
+                    <li><a href="#">中文</a></li>
+                    <li><a href="#">English</a></li>
                 </ul>
             </div>
         </div>
@@ -305,17 +514,58 @@
 
     <!-- 首页横幅 -->
     <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row hero-content">
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <h1 class="hero-title wow fadeInUp">优品电商</h1>
-                    <p class="hero-subtitle wow fadeInUp" data-wow-delay="0.2s">
-                        中国品牌深入合作电子商务伙伴和领先的电商大数据研发及解决方案公司
-                    </p>
-                    <a href="#about" class="btn btn-hero wow fadeInUp" data-wow-delay="0.4s">
-                        了解更多
-                    </a>
+        <div class="hero-carousel">
+            <!-- 轮播图片 -->
+            <div class="hero-slide active" style="background-image: url('images/banner.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('images/case1.png');"></div>
+            <div class="hero-slide" style="background-image: url('images/case14.png');"></div>
+            <div class="hero-slide" style="background-image: url('images/case16.png');"></div>
+            
+            <!-- 轮播内容 -->
+            <div class="container">
+                <div class="row hero-content">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h1 class="hero-title wow fadeInUp">优品电商</h1>
+                        <p class="hero-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                            中国品牌深入合作电子商务伙伴和领先的电商大数据研发及解决方案公司
+                        </p>
+                        <div class="wow fadeInUp" data-wow-delay="0.4s">
+                            <a href="#about" class="btn btn-hero">
+                                了解更多
+                            </a>
+                        </div>
+                        <div class="hero-stats wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">500+</span>
+                                <span class="hero-stat-label">合作品牌</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">98%</span>
+                                <span class="hero-stat-label">客户满意度</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">300%</span>
+                                <span class="hero-stat-label">平均增长</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- 轮播导航按钮 -->
+            <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav carousel-next" onclick="changeSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- 轮播指示器 -->
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(3)"></div>
             </div>
         </div>
     </section>
@@ -733,6 +983,65 @@
                 });
             });
         });
+        
+        // 轮播功能
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+        let slideInterval;
+        
+        // 初始化轮播
+        function initCarousel() {
+            startAutoSlide();
+        }
+        
+        // 切换到指定幻灯片
+        function goToSlide(index) {
+            // 移除当前活动状态
+            slides[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            
+            // 设置新的活动状态
+            currentSlide = index;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+        
+        // 切换幻灯片
+        function changeSlide(direction) {
+            goToSlide(currentSlide + direction);
+            resetAutoSlide();
+        }
+        
+        // 自动播放
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000); // 每5秒切换一次
+        }
+        
+        // 重置自动播放
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+        
+        // 鼠标悬停时暂停自动播放
+        document.querySelector('.hero-carousel').addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        // 鼠标离开时恢复自动播放
+        document.querySelector('.hero-carousel').addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+        
+        // 页面加载完成后初始化轮播
+        document.addEventListener('DOMContentLoaded', initCarousel);
     </script>
 </body>
 </html>

@@ -1,0 +1,209 @@
+# HTML/CSS 开发标准
+
+## HTML 编码规范
+
+### 语义化标签
+- 使用 `<section>`, `<article>`, `<header>`, `<footer>` 等语义化标签
+- 避免过度使用 `<div>` 标签
+- 为图片添加有意义的 `alt` 属性
+
+### 结构规范
+```html
+<!-- 正确的结构 -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="hero-title">标题</h1>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+### 类名命名
+- 使用 BEM 方法论：`.block__element--modifier`
+- 日系风格类名：`.hero-section`, `.advantage-item`
+- 避免使用下划线，优先使用连字符
+
+## CSS 编码规范
+
+### 日系风格CSS
+```css
+/* 字体设置 */
+body {
+    font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+}
+
+/* 颜色变量 */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --text-color: #2c3e50;
+    --light-text: #7f8c8d;
+    --background: #ffffff;
+    --light-bg: #f8f9fa;
+}
+
+/* 阴影效果 */
+.soft-shadow {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* 悬停效果 */
+.hover-lift:hover {
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+```
+
+### 响应式设计
+```css
+/* 移动优先 */
+.component {
+    padding: 15px;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .component {
+        padding: 25px;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .component {
+        padding: 35px;
+        font-size: 18px;
+    }
+}
+```
+
+### 动画效果
+```css
+/* 淡入动画 */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* 滑入动画 */
+.slide-up {
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+```
+
+## 组件规范
+
+### 卡片组件
+```css
+.card {
+    background: var(--background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #f1f2f6;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+```
+
+### 按钮组件
+```css
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+```
+
+## 性能优化
+
+### CSS 优化
+- 避免使用 `!important`
+- 减少选择器嵌套深度
+- 使用 `transform` 和 `opacity` 进行动画
+- 合理使用 `will-change` 属性
+
+### 图片优化
+```css
+/* 响应式图片 */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 懒加载占位符 */
+.lazy-placeholder {
+    background: #f8f9fa;
+    min-height: 200px;
+}
+```
+
+## 无障碍访问
+
+### 键盘导航
+```css
+/* 焦点样式 */
+.focusable:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* 跳过链接 */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+```
+
+### 颜色对比度
+- 确保文字与背景的对比度符合 WCAG 2.1 AA 标准
+- 主色文字 (#2c3e50) 在白色背景上对比度为 12.63:1 ✓
+- 次要文字 (#7f8c8d) 在白色背景上对比度为 3.02:1 ⚠️
+description:
+globs:
+alwaysApply: false
+---

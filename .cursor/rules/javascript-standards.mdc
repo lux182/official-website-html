@@ -1,0 +1,313 @@
+# JavaScript 开发标准
+
+## 代码规范
+
+### 变量命名
+```javascript
+// 使用 camelCase 命名变量
+const currentSlide = 0;
+const totalSlides = slides.length;
+const slideInterval = null;
+
+// 常量使用 UPPER_SNAKE_CASE
+const AUTO_SLIDE_INTERVAL = 5000;
+const TRANSITION_DURATION = 1000;
+```
+
+### 函数命名
+```javascript
+// 动词开头，描述功能
+function initCarousel() { }
+function goToSlide(index) { }
+function changeSlide(direction) { }
+function startAutoSlide() { }
+function resetAutoSlide() { }
+```
+
+## 轮播组件规范
+
+### 轮播初始化
+```javascript
+// 轮播功能
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const indicators = document.querySelectorAll('.carousel-indicator');
+const totalSlides = slides.length;
+let slideInterval;
+
+// 初始化轮播
+function initCarousel() {
+    startAutoSlide();
+    bindEvents();
+}
+```
+
+### 轮播控制
+```javascript
+// 切换到指定幻灯片
+function goToSlide(index) {
+    // 移除当前活动状态
+    slides[currentSlide].classList.remove('active');
+    indicators[currentSlide].classList.remove('active');
+    
+    // 设置新的活动状态
+    currentSlide = index;
+    if (currentSlide >= totalSlides) currentSlide = 0;
+    if (currentSlide < 0) currentSlide = totalSlides - 1;
+    
+    slides[currentSlide].classList.add('active');
+    indicators[currentSlide].classList.add('active');
+}
+
+// 切换幻灯片
+function changeSlide(direction) {
+    goToSlide(currentSlide + direction);
+    resetAutoSlide();
+}
+```
+
+### 自动播放
+```javascript
+// 自动播放
+function startAutoSlide() {
+    slideInterval = setInterval(() => {
+        goToSlide(currentSlide + 1);
+    }, AUTO_SLIDE_INTERVAL);
+}
+
+// 重置自动播放
+function resetAutoSlide() {
+    clearInterval(slideInterval);
+    startAutoSlide();
+}
+```
+
+## 事件处理
+
+### 事件绑定
+```javascript
+// 绑定事件
+function bindEvents() {
+    // 鼠标悬停时暂停自动播放
+    document.querySelector('.hero-carousel').addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+    
+    // 鼠标离开时恢复自动播放
+    document.querySelector('.hero-carousel').addEventListener('mouseleave', () => {
+        startAutoSlide();
+    });
+    
+    // 键盘导航
+    document.addEventListener('keydown', handleKeyboardNavigation);
+}
+
+// 键盘导航处理
+function handleKeyboardNavigation(event) {
+    switch(event.key) {
+        case 'ArrowLeft':
+            changeSlide(-1);
+            break;
+        case 'ArrowRight':
+            changeSlide(1);
+            break;
+        case 'Escape':
+            clearInterval(slideInterval);
+            break;
+    }
+}
+```
+
+## jQuery 使用规范
+
+### 平滑滚动
+```javascript
+$(function(){
+    // 平滑滚动
+    $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if( target.length ) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top - 70
+            }, 1000);
+        }
+    });
+});
+```
+
+### 导航栏激活状态
+```javascript
+// 导航栏激活状态
+$(window).scroll(function() {
+    var scrollTop = $(window).scrollTop();
+    $('section').each(function() {
+        var topDistance = $(this).offset().top - 100;
+        if (scrollTop > topDistance) {
+            var sectionId = $(this).attr('id');
+            $('nav li').removeClass('active');
+            $('nav li a[href="#' + sectionId + '"]').parent().addClass('active');
+        }
+    });
+});
+```
+
+## 性能优化
+
+### 防抖和节流
+```javascript
+// 防抖函数
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// 节流函数
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+// 使用示例
+const throttledScroll = throttle(function() {
+    // 滚动处理逻辑
+}, 100);
+```
+
+### 懒加载
+```javascript
+// 图片懒加载
+function initLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+```
+
+## 错误处理
+
+### 异常捕获
+```javascript
+// 安全的函数执行
+function safeExecute(func, fallback) {
+    try {
+        return func();
+    } catch (error) {
+        console.error('Error executing function:', error);
+        return fallback;
+    }
+}
+
+// 使用示例
+const result = safeExecute(() => {
+    return document.querySelector('.non-existent').textContent;
+}, '默认值');
+```
+
+### 轮播错误处理
+```javascript
+// 轮播错误处理
+function initCarousel() {
+    try {
+        const slides = document.querySelectorAll('.hero-slide');
+        if (slides.length === 0) {
+            console.warn('No slides found for carousel');
+            return;
+        }
+        
+        startAutoSlide();
+        bindEvents();
+    } catch (error) {
+        console.error('Failed to initialize carousel:', error);
+    }
+}
+```
+
+## 模块化
+
+### 轮播模块
+```javascript
+// 轮播模块
+const Carousel = {
+    currentSlide: 0,
+    slides: [],
+    indicators: [],
+    interval: null,
+    
+    init() {
+        this.slides = document.querySelectorAll('.hero-slide');
+        this.indicators = document.querySelectorAll('.carousel-indicator');
+        this.bindEvents();
+        this.startAutoSlide();
+    },
+    
+    goToSlide(index) {
+        // 实现逻辑
+    },
+    
+    startAutoSlide() {
+        // 实现逻辑
+    },
+    
+    bindEvents() {
+        // 实现逻辑
+    }
+};
+
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+    Carousel.init();
+});
+```
+
+## 调试和日志
+
+### 调试工具
+```javascript
+// 调试模式
+const DEBUG = true;
+
+function debugLog(message, data) {
+    if (DEBUG) {
+        console.log(`[DEBUG] ${message}`, data);
+    }
+}
+
+// 性能监控
+function measurePerformance(name, fn) {
+    const start = performance.now();
+    const result = fn();
+    const end = performance.now();
+    debugLog(`${name} took ${end - start}ms`);
+    return result;
+}
+```
+description:
+globs:
+alwaysApply: false
+---
