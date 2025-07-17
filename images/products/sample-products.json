@@ -1,0 +1,189 @@
+[object Object]products":[object Object]
+  appliances": [object Object]kitchen": [
+       [object Object]
+       id:coffee_machine_delong_01,
+         name德龙咖啡机",
+       brand:德龙        category":厨房电器",
+         price_range": "¥8002000
+          search_keywords: ["德龙咖啡机, "意式咖啡机", "全自动咖啡机"],
+         image_name:coffee_machine_delong_1.jpg",
+          description":专业意式咖啡机，15制作浓缩咖啡",
+        features:15r压力", 一键操作, "不锈钢机身", "可调节研磨度"],
+       target_url: https://search.jd.com/Search?keyword=德龙咖啡机"
+        },
+       [object Object]
+          id": "rice_cooker_panasonic_01,
+         name松下电饭煲",
+       brand:松下        category":厨房电器",
+         price_range": "¥30-800
+          search_keywords: ["松下电饭煲, 智能电饭煲", "IH电饭煲"],
+       image_name": "rice_cooker_panasonic_1.jpg",
+          description: IH电磁加热电饭煲，智能控温，米饭更香",
+          features": ["IH加热,智能控温", "24多功能烹饪"],
+       target_url: https://search.jd.com/Search?keyword=松下电饭煲"
+        },
+       [object Object]
+          id: juicer_philips_01,
+          name飞利浦榨汁机",
+        brand: 飞利浦        category":厨房电器",
+         price_range": "¥20-500
+          search_keywords:飞利浦榨汁机",原汁机慢速榨汁机"],
+         image_name: juicer_philips_1.jpg",
+          description: 慢速原汁机，保留更多营养，出汁率高",
+          features": 慢速榨汁", 高出汁率", "易清洗", 静音设计"],
+       target_url: https://search.jd.com/Search?keyword=飞利浦榨汁机"
+        }
+      ],
+living": [
+       [object Object]
+         id:humidifier_xiaomi_01,
+         name小米加湿器",
+       brand:小米        category":生活电器",
+         price_range": "¥10-300
+          search_keywords: ["小米加湿器, "智能加湿器", "超声波加湿器"],
+       image_name:humidifier_xiaomi_1.jpg",
+          description: 智能超声波加湿器，APP控制，静音运行",
+         features:APP控制", 静音运行", "大容量", 智能恒湿"],
+       target_url: https://search.jd.com/Search?keyword=小米加湿器"
+        },
+       [object Object]
+       id": "vacuum_dyson_01,
+         name戴森吸尘器",
+       brand:戴森        category":生活电器",
+         price_range": "¥20005000
+          search_keywords: ["戴森吸尘器, "无线吸尘器", "V11吸尘器"],
+          image_name": "vacuum_dyson_1.jpg",
+          description": 无线手持吸尘器，强劲吸力，60分钟续航",
+          features": ["无线设计,强劲吸力, 60多种吸头"],
+       target_url: https://search.jd.com/Search?keyword=戴森吸尘器"
+        }
+      ]
+    },
+clothing":[object Object]men": [
+       [object Object]
+         id": "shirt_uniqlo_01,
+        name": "优衣库休闲衬衫",
+        brand: 优衣库         category:男装,
+         price_range": "¥10-300
+          search_keywords:优衣库衬衫",休闲衬衫男士衬衫"],
+         image_name": "shirt_uniqlo_1.jpg",
+          description:经典休闲衬衫，舒适面料，百搭款式",
+          features": ["舒适面料, 百搭款式", "多种颜色",易打理"],
+       target_url: https://search.jd.com/Search?keyword=优衣库衬衫"
+        },
+       [object Object]
+          id:jeans_levis_01,
+          name李维斯牛仔裤",
+        brand: 李维斯         category:男装,
+         price_range": "¥30-800
+          search_keywords":李维斯牛仔裤, 直筒牛仔裤", "男士牛仔裤"],
+         image_name: jeans_levis_1.jpg",
+          description: 经典直筒牛仔裤，舒适弹力，百搭款式",
+          features": ["弹力面料,直筒版型",经典设计舒适穿着"],
+       target_url: https://search.jd.com/Search?keyword=李维斯牛仔裤"
+        }
+      ],
+      women": [
+       [object Object]
+          id":dress_zara_01,
+        name": "ZARA连衣裙",
+         brandZARA",
+          category:女装,
+         price_range": "¥20-600
+          search_keywords:["ZARA连衣裙, 夏季连衣裙", "时尚连衣裙"],
+        image_name": dress_zara_1.jpg",
+          description": 时尚夏季连衣裙，优雅设计，舒适面料",
+          features": ["时尚设计,舒适面料",优雅版型多种颜色"],
+       target_url: https://search.jd.com/Search?keyword=ZARA连衣裙"
+        }
+      ]
+    },
+   sports:[object Object]wear": [
+       [object Object]
+       id": "shoes_adidas_01,
+        name": "阿迪达斯运动鞋",
+         brand阿迪达斯",
+         category":运动服饰",
+         price_range": "¥4001200
+          search_keywords: ["阿迪达斯运动鞋, "跑步鞋", "boost运动鞋"],
+         image_name": "shoes_adidas_1.jpg",
+          description":专业跑步鞋，Boost缓震技术，舒适透气",
+      features:Boost缓震, 透气网面",舒适鞋垫防滑大底"],
+       target_url: https://search.jd.com/Search?keyword=阿迪达斯运动鞋"
+        },
+       [object Object]
+         id":sports_bra_nike_01,
+          name耐克运动内衣",
+       brand:耐克        category":运动服饰",
+         price_range": "¥20-400
+          search_keywords:耐克运动内衣, "高强度运动内衣", 运动文胸"],
+        image_name":sports_bra_nike_1.jpg",
+        description": 高强度运动内衣，专业支撑，舒适透气",
+         features:高强度支撑,透气面料",防震设计舒适贴合"],
+       target_url: https://search.jd.com/Search?keyword=耐克运动内衣"
+        }
+      ],
+   equipment": [
+       [object Object]
+       id": "dumbbell_decathlon_01,
+         name迪卡侬哑铃",
+        brand: 迪卡侬        category":健身器材",
+         price_range": "¥10-500
+          search_keywords: ["迪卡侬哑铃", 可调节哑铃健身哑铃"],
+          image_name": "dumbbell_decathlon_1.jpg",
+         description": 可调节哑铃，重量可调，适合家庭健身",
+          features": 重量可调,安全设计",防滑手柄适合家用"],
+       target_url: https://search.jd.com/Search?keyword=迪卡侬哑铃"
+        }
+      ]
+    },
+    camping": {
+      tents": [
+       [object Object]
+         id:tent_mobigarden_01,
+         name牧高笛帐篷",
+        brand: 牧高笛        category":帐篷用品",
+         price_range": "¥3001000
+          search_keywords:牧高笛帐篷",双人帐篷户外帐篷"],
+        image_name":tent_mobigarden_1.jpg",
+          description:双人户外帐篷，防水防风，快速搭建",
+          features": 防水面料, 快速搭建",双人空间轻便携带"],
+       target_url: https://search.jd.com/Search?keyword=牧高笛帐篷"
+        },
+       [object Object]
+         id:sleeping_bag_toread_01,
+         name探路者睡袋",
+        brand: 探路者        category":帐篷用品",
+         price_range": "¥20-600
+          search_keywords:探路者睡袋",羽绒睡袋户外睡袋"],
+       image_name:sleeping_bag_toread_1.jpg",
+          description:羽绒睡袋，保暖舒适，适合户外露营",
+          features": 羽绒填充,保暖舒适",轻便压缩防水面料"],
+       target_url: https://search.jd.com/Search?keyword=探路者睡袋"
+        }
+      ],
+  cookware": [
+       [object Object]
+         id":stove_firemaple_01,
+         name火枫野营炉",
+       brand:火枫        category":炊具用品",
+         price_range": "¥20-500
+          search_keywords:火枫野营炉",便携炉具户外炉具"],
+         image_name":stove_firemaple_1.jpg",
+          description": 便携野营炉，高效燃烧，适合户外烹饪",
+          features": ["便携设计, 高效燃烧", "防风设计",易操作"],
+       target_url: https://search.jd.com/Search?keyword=火枫野营炉"
+        }
+      ]
+    }
+  },
+  collection_status": {
+    total_products": 12,
+  collected: 0
+    pending": 12  completion_rate": "0%
+  },
+  priority_levels": [object Object]  high: ["coffee_machine_delong_01, "rice_cooker_panasonic_01, shirt_uniqlo_01, shoes_adidas_01",tent_mobigarden_01,
+    medium":juicer_philips_1,humidifier_xiaomi_1,jeans_levis_1,sports_bra_nike_1dumbbell_decathlon_01,
+   low:vacuum_dyson_01, dress_zara_1,sleeping_bag_toread_01,stove_firemaple_01"]
+  }
+} 

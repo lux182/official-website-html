@@ -1,0 +1,294 @@
+# Terminal命令执行指南
+
+## 🚨 重要提醒 - 强制执行
+
+**在执行任何terminal命令前，必须首先判断执行环境，这是强制要求！**
+
+### 强制执行的判断流程：
+1 **操作系统检测** - 必须首先确认是Windows还是macOS/Linux
+2. **Shell类型确认** - 确认是PowerShell、CMD还是bash/zsh
+3. **当前目录验证** - 确认在正确的项目目录中4 **权限检查** - 确认有足够的文件系统权限
+
+### 违反此规范的后果：
+- 命令执行失败
+- 用户体验差
+- 项目进度延误
+- 需要重新执行操作
+
+## 环境判断流程
+
+### 1. 操作系统检测
+```bash
+# Windows环境
+echo $env:OS
+# 或
+systeminfo | findstr /B /C:OS Name
+
+# macOS/Linux环境
+uname -s
+# 或
+cat /etc/os-release
+```
+
+### 2. 当前工作目录确认
+```bash
+# Windows PowerShell
+Get-Location
+# 或
+pwd
+
+# macOS/Linux
+pwd
+```
+
+###3
+```bash
+# Windows
+whoami
+# 或
+net user %username%
+
+# macOS/Linux
+whoami
+# 或
+id
+```
+
+## ✅ 强制执行检查清单
+
+在执行任何terminal命令前，必须完成以下检查：
+
+### 环境检测 (必须完成)
+- [ ] 确认操作系统类型 (Windows/macOS/Linux)
+- [ ] 确认Shell类型 (PowerShell/CMD/bash/zsh)
+-  ] 确认当前工作目录
+- ] 确认文件系统权限
+
+### 命令准备 (必须完成)
+- ] 选择正确的命令语法
+-  ] 准备错误处理方案
+-  ] 准备备选操作步骤
+- ] 说明预期执行结果
+
+### 执行前确认 (必须完成)
+- ] 告知用户即将执行的命令
+- ] 说明命令的目的和预期结果
+- ] 提供失败时的处理方案
+- [ ] 确认用户理解操作步骤
+
+## Windows环境特殊处理
+
+### PowerShell语法规范
+```powershell
+# ❌ 错误：使用Linux命令
+mkdir folder1 folder2folder3
+
+# ✅ 正确：使用PowerShell命令
+New-Item -ItemType Directory -Path folder1", folder2", folder3 -Force
+
+# ❌ 错误：使用Linux路径分隔符
+cd /path/to/directory
+
+# ✅ 正确：使用Windows路径分隔符
+cd C:\path\to\directory
+# 或
+cd path\to\directory
+```
+
+### 命令连接符
+```powershell
+# ❌ 错误：使用Linux连接符
+command1 && command2
+
+# ✅ 正确：使用PowerShell连接符
+command1; command2
+# 或
+command1 -and command2
+```
+
+### 变量语法
+```powershell
+# ❌ 错误：Linux变量语法
+$variable=value
+
+# ✅ 正确：PowerShell变量语法
+$variable = "value"
+```
+
+## macOS/Linux环境处理
+
+### 标准bash语法
+```bash
+# 创建目录
+mkdir -p folder1 folder2folder3# 路径操作
+cd /path/to/directory
+
+# 命令连接
+command1 && command2```
+
+## 常见问题解决方案
+
+### 1. 目录创建失败
+```powershell
+# Windows PowerShell
+try {
+    New-Item -ItemType Directory -Path path\to\directory-Force
+    Write-Host "目录创建成功"
+} catch [object Object]    Write-Host "目录创建失败: $($_.Exception.Message)}
+```
+
+###2权限不足
+```powershell
+# Windows - 以管理员身份运行
+Start-Process powershell -Verb RunAs
+
+# macOS/Linux - 使用sudo
+sudo mkdir /path/to/directory
+```
+
+###3路径问题
+```powershell
+# Windows - 检查路径是否存在
+Test-Path path\to\directory
+
+# macOS/Linux - 检查路径是否存在
+test -d "/path/to/directory
+```
+
+## 推荐执行策略
+
+### 1 渐进式执行
+- 先执行简单命令验证环境
+- 再执行复杂命令
+- 每个命令后检查结果
+
+###2错误处理
+```powershell
+# Windows PowerShell错误处理
+try {
+    $result = Invoke-Expression "command"
+    if ($LASTEXITCODE -eq 0[object Object]        Write-Host "命令执行成功"
+    } else[object Object]        Write-Host "命令执行失败   }
+} catch [object Object]    Write-Host "发生错误: $($_.Exception.Message)}
+```
+
+### 3. 回退机制
+- 准备手动操作步骤
+- 提供备选命令
+- 记录故障排除步骤
+
+## 最佳实践
+
+### 1 优先使用文件操作工具
+- 使用 `edit_file` 工具创建文件
+- 使用 `search_replace` 工具修改文件
+- 避免不必要的terminal命令
+
+### 2. 提供手动步骤说明
+```markdown
+## 手动操作步骤
+
+1. 打开文件资源管理器
+2导航到项目目录
+3. 创建所需文件夹
+4复制文件到正确位置
+```
+
+### 3令执行前说明
+```markdown
+## 即将执行的命令
+
+**目的**: 创建产品图片目录结构
+**命令**: `New-Item -ItemType Directory -Path "appliances/kitchen" -Force`
+**预期结果**: 创建kitchen目录
+**失败处理**: 手动创建目录
+```
+
+###4提供备选方案
+```markdown
+## 备选方案
+
+如果命令执行失败，请手动执行以下步骤：
+
+1. 在 `images/products/` 目录下创建 `appliances` 文件夹
+2在 `appliances` 文件夹下创建 `kitchen` 文件夹3复此过程创建其他所需目录
+```
+
+## 故障排除
+
+### 常见错误及解决方案1**"mkdir : An item with the specified name already exists**
+   - 解决方案：检查目录是否已存在，使用 `-Force` 参数
+
+2. **Access is denied**
+   - 解决方案：以管理员身份运行PowerShell3Thesystem cannot find the path specified**   - 解决方案：检查路径是否正确，确保父目录存在
+4Command not found**
+   - 解决方案：检查命令是否适用于当前操作系统
+
+## 总结
+
+在执行terminal命令时，始终遵循以下原则：
+
+1. **环境判断**：确认操作系统和shell类型2. **渐进执行**：从简单命令开始
+3 **错误处理**：准备失败时的处理方案
+4 **用户反馈**：及时告知执行状态
+5 **备选方案**：提供手动操作步骤
+
+记住：**质量比速度更重要**，确保每个命令都能正确执行！
+
+## 📋 实际执行示例
+
+### 示例：创建目录结构
+
+#### 第一步：环境检测
+```powershell
+# 检测操作系统
+echo $env:OS
+# 检测当前目录
+Get-Location
+# 检测权限
+whoami
+```
+
+#### 第二步：命令准备
+```powershell
+# 准备创建目录的命令
+$directories = @("appliances/kitchen", appliances/living", "appliances/personal")
+$basePath = images/products"
+# 准备错误处理
+try {
+    foreach ($dir in $directories) {
+        $fullPath = Join-Path $basePath $dir
+        if (!(Test-Path $fullPath)) [object Object]          New-Item -ItemType Directory -Path $fullPath -Force
+            Write-Host ✅ 创建目录: $fullPath"
+        } else {
+            Write-Host "📁 目录已存在: $fullPath
+        }
+    }
+} catch [object Object]
+    Write-Host "❌ 创建目录失败: $($_.Exception.Message)
+    Write-Host "请手动创建以下目录："
+    foreach ($dir in $directories)[object Object]        Write-Host "  - $basePath/$dir"
+    }
+}
+```
+
+#### 第三步：执行前确认
+**即将执行的命令**：创建产品图片目录结构
+**预期结果**：在 `images/products/` 下创建3个子目录
+**失败处理**：提供手动创建步骤
+**备选方案**：使用文件操作工具创建目录
+
+### 关键要点
+- **必须**先检测环境再执行命令
+- **必须**准备错误处理方案
+- **必须**提供备选操作步骤
+- **必须**告知用户执行状态
+
+description:
+globs:
+alwaysApply: true
+---
+description:
+globs:
+alwaysApply: false
+---
