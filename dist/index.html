@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>优品电商 - 专业的电商解决方案提供商</title>
+    <meta name="keywords" content="电商服务,电商运营,数字营销,IT解决方案,仓储物流,优品电商" />
+    <meta name="description" content="优品电商是专业的电商解决方案提供商，为品牌提供深度商业合作方案，涵盖店铺运营、数字营销、IT解决方案、仓储配送、客户服务等全链条服务" />
+    <meta http-equiv="content-language" content="zh-CN">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-xinqi.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans CJK JP', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #fafafa;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            border: none;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            min-height: 60px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand {
+            font-size: 22px;
+            font-weight: 300;
+            color: #34495e !important;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 15px;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-nav > li > a {
+            color: #34495e !important;
+            font-weight: 400;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 15px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .navbar-nav > li > a:hover {
+            color: #3498db !important;
+            background-color: transparent;
+        }
+        
+        .navbar-nav.navbar-right > li > a {
+            padding: 0 10px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #e8f4fd 0%, #f0f8ff 50%, #e6f3ff 100%);
+            color: #2c3e50;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            overflow: hidden;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.3);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 120px 0;
+        }
+        
+        .hero-title {
+            font-size: 4.5em;
+            font-weight: 200;
+            margin-bottom: 30px;
+            color: white;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5em;
+            margin-bottom: 50px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.8;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .btn-hero {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.1em;
+            font-weight: 400;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-hero:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+            color: white;
+        }
+        
+        .hero-stats {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-number {
+            font-size: 2.8em;
+            font-weight: 200;
+            display: block;
+            margin-bottom: 10px;
+            color: #3498db;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .hero-stat-label {
+            font-size: 1.1em;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-indicator.active {
+            background: #3498db;
+            transform: scale(1.2);
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .carousel-nav:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-prev {
+            left: 30px;
+        }
+        
+        .carousel-next {
+            right: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: 500px;
+            }
+            
+            .hero-carousel {
+                height: 500px;
+            }
+            
+            .hero-title {
+                font-size: 2.8em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2em;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .hero-stat-number {
+                font-size: 2.2em;
+            }
+            
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+            
+            .carousel-prev {
+                left: 15px;
+            }
+            
+            .carousel-next {
+                right: 15px;
+            }
+            
+            .carousel-indicators {
+                bottom: 20px;
+            }
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2em;
+            font-weight: 200;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            letter-spacing: 1px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #7f8c8d;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+        
+        .about-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+        
+        .about-content {
+            font-size: 1.05em;
+            line-height: 1.9;
+            color: #34495e;
+            font-weight: 300;
+        }
+        
+        .advantages-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .advantage-item {
+            text-align: center;
+            padding: 35px 25px;
+            margin-bottom: 25px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f2f6;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .advantage-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .advantage-icon {
+            font-size: 3em;
+            color: #3498db;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .advantage-title {
+            font-size: 1.3em;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: #2c3e50;
+            letter-spacing: 0.5px;
+        }
+        
+        .advantage-desc {
+            color: #7f8c8d;
+            line-height: 1.7;
+            font-weight: 300;
+            flex-grow: 1;
+            text-align: left;
+            margin-top: auto;
+        }
+        
+        .brands-section {
+            padding: 70px 0;
+            background: #ffffff;
+        }
+        
+        .brand-category {
+            margin-bottom: 35px;
+        }
+        
+        .brand-category h4 {
+            color: #2c3e50;
+            margin-bottom: 18px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        .brand-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .brand-item {
+            background: #f8f9fa;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 300;
+            color: #34495e;
+            border: 1px solid #e9ecef;
+            font-size: 0.9em;
+        }
+        
+        .cases-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .case-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid #f1f2f6;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .case-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .case-image {
+            height: 120px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8em;
+            opacity: 0.9;
+        }
+        
+        .case-content {
+            padding: 25px;
+        }
+        
+        .case-title {
+            font-size: 1.2em;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            letter-spacing: 0.3px;
+        }
+        
+        .case-desc {
+            color: #7f8c8d;
+            line-height: 1.7;
+            font-weight: 300;
+            flex-grow: 1;
+            text-align: left;
+            margin-top: auto;
+        }
+        
+        .contact-section {
+            padding: 70px 0;
+            background: #34495e;
+            color: white;
+        }
+        
+        .contact-info {
+            margin-bottom: 25px;
+        }
+        
+        .contact-info h5 {
+            color: #3498db;
+            margin-bottom: 12px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 6px;
+            opacity: 0.9;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 25px 0;
+            text-align: center;
+            font-weight: 300;
+        }
+        
+        /* 业务和团队部分的样式调整 */
+        #business {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+        
+        #team {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        /* 按钮样式统一 */
+        .btn-primary {
+            background: #3498db;
+            border-color: #3498db;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+            border-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="" class="navbar-brand">
+                    <i class="fas fa-chart-line"></i> 优品电商
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#home">首页</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#cases">成功案例</a></li>
+                    <li><a href="#business">我们的业务</a></li>
+                    <li><a href="#team">我们的团队</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">中文</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页横幅 -->
+    <section id="home" class="hero-section">
+        <div class="hero-carousel">
+            <!-- 轮播图片 -->
+            <div class="hero-slide active" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+            <div class="hero-slide" style="background-image: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);"></div>
+            <div class="hero-slide" style="background-image: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);"></div>
+            <div class="hero-slide" style="background-image: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);"></div>
+            
+            <!-- 轮播内容 -->
+            <div class="container">
+                <div class="row hero-content">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h1 class="hero-title wow fadeInUp">优品电商</h1>
+                        <p class="hero-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                            中国品牌深入合作电子商务伙伴和领先的电商大数据研发及解决方案公司
+                        </p>
+                        <div class="wow fadeInUp" data-wow-delay="0.4s">
+                            <a href="#about" class="btn btn-hero">
+                                了解更多
+                            </a>
+                        </div>
+                        <div class="hero-stats wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">500+</span>
+                                <span class="hero-stat-label">合作品牌</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">98%</span>
+                                <span class="hero-stat-label">客户满意度</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">300%</span>
+                                <span class="hero-stat-label">平均增长</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 轮播导航按钮 -->
+            <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav carousel-next" onclick="changeSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- 轮播指示器 -->
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(3)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">关于我们</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        专业的电商解决方案提供商
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="about-content wow fadeInUp" data-wow-delay="0.4s">
+                        <p>成立于2020年，总部位于北京并建立上海分部。</p>
+                        <p>优品电商以电子商务为核心为品牌提供深度的商业合作方案，一站式为店铺运营、数字营销、IT解决方案、仓储配送、客户服务等制定商业方案。覆盖从品牌官方商城，到中国最大的电商平台（天猫与京东、社交移动商城、线下智能门店）等全渠道的构建。</p>
+                        <p>我们深入数字世界的大数据分析，并在各供应链深耕细作，为品牌提供深度解决方案，为消费者打造完美购物体验，构架起品牌与消费者之间的互通桥梁。</p>
+                        <div class="text-center" style="margin-top: 30px;">
+                            <a href="#business" class="btn btn-primary btn-lg">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我们的优势 -->
+    <section id="advantages" class="advantages-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">我们的优势</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        六大核心优势，助力品牌电商成功
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4 class="advantage-title">深度品牌合作</h4>
+                        <p class="advantage-desc">
+                            我们并非单纯的运营服务，我们深入了解品牌的形象与电商数据，深度携手。为每一个品牌配备专属的店长运营团队，专业的视觉设计团队和IT团队，以品牌的价值为基础导向，不断推进品牌的价值与形象。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4 class="advantage-title">数字营销</h4>
+                        <p class="advantage-desc">
+                            以销售为导向制定迎合方案，实现品销合一。从品牌的生意策略出发，以消费者生命周期推移为目标，充分挖掘用户在各个场景中的行为数据；以大数据为核心，以有销售力的创意为手段。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4 class="advantage-title">IT解决方案</h4>
+                        <p class="advantage-desc">
+                            从品牌到消费者终端的全渠道数字化商务解决方案和前端后台专业服务。覆盖多种用户触点，线上电商、品牌官方商城、移动应用以及线下门店的各种视觉支持。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4 class="advantage-title">全渠道</h4>
+                        <p class="advantage-desc">
+                            我们的运营服务涵盖全线渠道，包括平台店铺（如天猫、京东、唯品会、亚马逊等）、品牌官网、微信商城、O2O等全线渠道，聚焦消费者生命周期运营。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="advantage-title">客户服务</h4>
+                        <p class="advantage-desc">
+                            为品牌电商业务而生的新一代综合客户服务能力。除了满足一般意义的客户咨询，售后服务需求和投诉处理，我们的客户服务完全融入消费者与品牌互动的全过程。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4 class="advantage-title">仓储物流</h4>
+                        <p class="advantage-desc">
+                            完善的供应链管理系统，在以双11为代表的超大型电商促销活动中展现出出色的稳定性及效能，并得到了品牌的高度认可。覆盖全国范围内可提供最适合的物流解决方案。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作品牌 -->
+    <section id="brands" class="brands-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">合作品牌</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        与众多知名品牌深度合作
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="brand-category wow fadeInUp" data-wow-delay="0.1s">
+                        <h4><i class="fas fa-mountain"></i> 户外运动</h4>
+                        <div class="brand-list">
+                            <span class="brand-item">Arcteryx</span>
+                            <span class="brand-item">Salomon</span>
+                            <span class="brand-item">Suunto</span>
+                            <span class="brand-item">Victorinox</span>
+                            <span class="brand-item">Wilson</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="brand-category wow fadeInUp" data-wow-delay="0.2s">
+                        <h4><i class="fas fa-baby"></i> 母婴生活</h4>
+                        <div class="brand-list">
+                            <span class="brand-item">Pigeon</span>
+                            <span class="brand-item">Graco</span>
+                            <span class="brand-item">MICRO</span>
+                            <span class="brand-item">KICK</span>
+                            <span class="brand-item">MAXI-COSI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="brand-category wow fadeInUp" data-wow-delay="0.3s">
+                        <h4><i class="fas fa-tshirt"></i> 时尚休闲</h4>
+                        <div class="brand-list">
+                            <span class="brand-item">CK</span>
+                            <span class="brand-item">LACOSTE</span>
+                            <span class="brand-item">FERRAGAMO</span>
+                            <span class="brand-item">MCM</span>
+                            <span class="brand-item">POLICE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成功案例 -->
+    <section id="cases" class="cases-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">成功案例</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        见证品牌电商成功之路
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="case-item wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="case-image">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div class="case-content">
+                            <h4 class="case-title">户外运动品牌运营</h4>
+                            <p class="case-desc">
+                                为知名户外运动品牌提供全渠道电商运营服务，实现销售额300%增长，客户满意度达98%。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="case-item wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="case-image">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <div class="case-content">
+                            <h4 class="case-title">母婴品牌数字化</h4>
+                            <p class="case-desc">
+                                帮助母婴品牌构建数字化营销体系，通过精准用户画像和个性化推荐，提升转化率150%。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="case-item wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="case-image">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="case-content">
+                            <h4 class="case-title">时尚品牌全渠道</h4>
+                            <p class="case-desc">
+                                为国际时尚品牌打造全渠道销售体系，整合线上线下资源，实现品牌价值最大化。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我们的业务 -->
+    <section id="business" style="padding: 100px 0; background: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">我们的业务</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        一站式电商解决方案
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="advantage-item wow fadeInLeft">
+                        <div class="advantage-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h4 class="advantage-title">店铺运营</h4>
+                        <p class="advantage-desc">
+                            专业的店铺运营团队，从商品上架到活动策划，从客户服务到数据分析，全方位提升店铺业绩。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="advantage-item wow fadeInRight">
+                        <div class="advantage-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h4 class="advantage-title">数字营销</h4>
+                        <p class="advantage-desc">
+                            基于大数据的精准营销策略，通过社交媒体、搜索引擎、内容营销等多种渠道提升品牌影响力。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="advantage-item wow fadeInLeft">
+                        <div class="advantage-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4 class="advantage-title">IT解决方案</h4>
+                        <p class="advantage-desc">
+                            定制化的电商系统开发，包括官网建设、移动应用、ERP系统等，提升运营效率。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="advantage-item wow fadeInRight">
+                        <div class="advantage-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h4 class="advantage-title">仓储配送</h4>
+                        <p class="advantage-desc">
+                            智能化的仓储管理系统，全国多仓布局，确保快速准确的订单处理和配送服务。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我们的团队 -->
+    <section id="team" style="padding: 100px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp">我们的团队</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                        专业团队，值得信赖
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="advantage-title">运营团队</h4>
+                        <p class="advantage-desc">
+                            经验丰富的电商运营专家，深谙各大平台规则，擅长店铺优化和业绩提升。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4 class="advantage-title">设计团队</h4>
+                        <p class="advantage-desc">
+                            专业的美术设计师和UI/UX专家，为品牌打造独特的视觉形象和用户体验。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="advantage-title">技术团队</h4>
+                        <p class="advantage-desc">
+                            资深的技术开发团队，精通前后端开发，为电商业务提供强有力的技术支撑。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="advantage-item wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="advantage-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="advantage-title">数据分析团队</h4>
+                        <p class="advantage-desc">
+                            专业的数据分析师，通过大数据挖掘，为业务决策提供科学依据。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title wow fadeInUp" style="color: white;">联系我们</h2>
+                    <p class="section-subtitle wow fadeInUp" data-wow-delay="0.2s" style="color: #ccc;">
+                        期待与您的合作
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-info wow fadeInLeft">
+                        <h5><i class="fas fa-map-marker-alt"></i> 北京总部</h5>
+                        <p>地址：北京市朝阳区优品大厦</p>
+                        <p>电话：010-12345678</p>
+                        <p>邮编：100000</p>
+                        <p>邮箱：beijing@youpin.com</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-info wow fadeInRight">
+                        <h5><i class="fas fa-map-marker-alt"></i> 上海分部</h5>
+                        <p>地址：上海市徐汇区虹漕路461弄</p>
+                        <p>电话：021-12345678</p>
+                        <p>邮编：200233</p>
+                        <p>邮箱：shanghai@youpin.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center" style="margin-top: 40px;">
+                    <h5 style="color: #667eea;">微信公众号</h5>
+                    <p>关注我们的微信公众号，获取最新资讯</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright © 2024 优品电商 Co. Ltd. All Rights Reserved. 优品电子商务有限公司 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        $(function(){
+            new WOW().init();
+            
+            // 平滑滚动
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if( target.length ) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 70
+                    }, 1000);
+                }
+            });
+            
+            // 导航栏激活状态
+            $(window).scroll(function() {
+                var scrollTop = $(window).scrollTop();
+                $('section').each(function() {
+                    var topDistance = $(this).offset().top - 100;
+                    if (scrollTop > topDistance) {
+                        var sectionId = $(this).attr('id');
+                        $('nav li').removeClass('active');
+                        $('nav li a[href="#' + sectionId + '"]').parent().addClass('active');
+                    }
+                });
+            });
+        });
+        
+        // 轮播功能
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+        let slideInterval;
+        
+        // 初始化轮播
+        function initCarousel() {
+            startAutoSlide();
+        }
+        
+        // 切换到指定幻灯片
+        function goToSlide(index) {
+            // 移除当前活动状态
+            slides[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            
+            // 设置新的活动状态
+            currentSlide = index;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+        
+        // 切换幻灯片
+        function changeSlide(direction) {
+            goToSlide(currentSlide + direction);
+            resetAutoSlide();
+        }
+        
+        // 自动播放
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000); // 每5秒切换一次
+        }
+        
+        // 重置自动播放
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+        
+        // 鼠标悬停时暂停自动播放
+        document.querySelector('.hero-carousel').addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        // 鼠标离开时恢复自动播放
+        document.querySelector('.hero-carousel').addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+        
+        // 页面加载完成后初始化轮播
+        document.addEventListener('DOMContentLoaded', initCarousel);
+    </script>
+</body>
+</html>

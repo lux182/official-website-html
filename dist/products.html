@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>产品展示 - 优品电商</title>
+    <meta name="keywords" content="休闲服饰,户外运动,野营设备,小家电,优品电商" />
+    <meta name="description" content="优品电商产品展示页面，展示休闲服饰、户外运动、野营设备、小家电等优质商品" />
+    <meta http-equiv="content-language" content="zh-CN">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-xinqi.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans CJK JP', sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #fafafa;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            border: none;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            min-height: 60px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand {
+            font-size: 22px;
+            font-weight: 300;
+            color: #34495e !important;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 15px;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-nav > li > a {
+            color: #34495e !important;
+            font-weight: 400;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 15px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .navbar-nav > li > a:hover {
+            color: #3498db !important;
+            background-color: transparent;
+        }
+        
+        .navbar-nav.navbar-right > li > a {
+            padding: 0 10px;
+        }
+        
+        .page-header {
+            padding: 100px 0 60px;
+            background: linear-gradient(135deg, #e8f4fd 0%, #f0f8ff 100%);
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 3em;
+            font-weight: 200;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+        
+        .product-category {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+        
+        .product-category:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .category-title {
+            font-size: 2.5em;
+            font-weight: 200;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .category-subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f2f6;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 250px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-size: 1.2em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-name {
+            font-size: 1.3em;
+            font-weight: 400;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+        
+        .product-desc {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .product-price {
+            font-size: 1.4em;
+            color: #3498db;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+        
+        .product-btn {
+            width: 100%;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .product-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .category-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .category-nav a {
+            display: block;
+            color: #7f8c8d;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            font-weight: 300;
+        }
+        
+        .category-nav a:hover,
+        .category-nav a.active {
+            background: #3498db;
+            color: white;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 25px 0;
+            text-align: center;
+            font-weight: 300;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.2em;
+            }
+            
+            .category-title {
+                font-size: 2em;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .category-nav {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                width: fit-content;
+            }
+            
+            .category-nav a {
+                display: inline-block;
+                margin: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                    <i class="fas fa-chart-line"></i> 优品电商
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="index.html#about">关于我们</a></li>
+                    <li class="active"><a href="products.html">产品展示</a></li>
+                    <li><a href="index.html#business">我们的业务</a></li>
+                    <li><a href="index.html#contact">联系我们</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">中文</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title wow fadeInUp">产品展示</h1>
+            <p class="page-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                精选优质商品，满足您的多样需求
+            </p>
+        </div>
+    </section>
+
+    <!-- 分类导航 -->
+    <div class="category-nav">
+        <a href="#appliances" class="active">小家电</a>
+        <a href="#clothing">休闲服饰</a>
+        <a href="#sports">户外运动</a>
+        <a href="#camping">野营设备</a>
+    </div>
+
+    <!-- 小家电 -->
+    <section id="appliances" class="product-category">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="category-title wow fadeInUp">
+                    <i class="fas fa-home"></i> 小家电
+                </h2>
+                <p class="category-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                    让生活更智能，让家更温馨
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-image">
+                        <img src="images/products/appliances/kitchen/coffee-machine-01.jpg" alt="咖啡机" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-coffee\"></i><br>咖啡机'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">智能咖啡机</h4>
+                        <p class="product-desc">一键制作专业咖啡，多种口味可选，让每个清晨都充满香气</p>
+                        <div class="product-price">¥1,299</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+                <div class="product-card wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="product-image">
+                        <img src="images/products/appliances/living/air-purifier-01.jpg" alt="空气净化器" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-wind\"></i><br>空气净化器'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">空气净化器</h4>
+                        <p class="product-desc">高效过滤PM2.5，除菌除异味，守护全家健康呼吸</p>
+                        <div class="product-price">¥899</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+                <div class="product-card wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="product-image">
+                        <img src="images/products/appliances/personal/hair-dryer-01.jpg" alt="吹风机" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-wind\"></i><br>吹风机'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">负离子吹风机</h4>
+                        <p class="product-desc">护发不伤发，快速干发，让秀发更加柔顺亮泽</p>
+                        <div class="product-price">¥599</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 休闲服饰 -->
+    <section id="clothing" class="product-category">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="category-title wow fadeInUp">
+                    <i class="fas fa-tshirt"></i> 休闲服饰
+                </h2>
+                <p class="category-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                    简约时尚，舒适自然
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-image">
+                        <img src="images/products/clothing/men/casual-shirt-01.jpg" alt="休闲衬衫" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-tshirt\"></i><br>休闲衬衫'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">纯棉休闲衬衫</h4>
+                        <p class="product-desc">优质纯棉面料，透气舒适，简约百搭设计</p>
+                        <div class="product-price">¥199</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+                <div class="product-card wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="product-image">
+                        <img src="images/products/clothing/women/casual-dress-01.jpg" alt="休闲连衣裙" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-female\"></i><br>休闲连衣裙'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">文艺连衣裙</h4>
+                        <p class="product-desc">清新日系设计，舒适面料，展现优雅气质</p>
+                        <div class="product-price">¥299</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+                <div class="product-card wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="product-image">
+                        <img src="images/products/clothing/accessories/canvas-bag-01.jpg" alt="帆布包" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-shopping-bag\"></i><br>帆布包'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">简约帆布包</h4>
+                        <p class="product-desc">环保帆布材质，大容量设计，日常出行必备</p>
+                        <div class="product-price">¥89</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 户外运动 -->
+    <section id="sports" class="product-category">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="category-title wow fadeInUp">
+                    <i class="fas fa-running"></i> 户外运动
+                </h2>
+                <p class="category-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                    活力运动，健康生活
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-image">
+                        <img src="images/products/sports/wear/running-shoes-01.jpg" alt="跑步鞋" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-shoe-prints\"></i><br>跑步鞋'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">专业跑步鞋</h4>
+                        <p class="product-desc">轻便透气，缓震保护，让每一步都更舒适</p>
+                        <div class="product-price">¥399</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+                <div class="product-card wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="product-image">
+                        <img src="images/products/sports/equipment/yoga-mat-01.jpg" alt="瑜伽垫" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-spa\"></i><br>瑜伽垫'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">环保瑜伽垫</h4>
+                        <p class="product-desc">天然橡胶材质，防滑耐用，瑜伽运动首选</p>
+                        <div class="product-price">¥129</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+                <div class="product-card wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="product-image">
+                        <img src="images/products/sports/accessories/sports-watch-01.jpg" alt="运动手表" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-stopwatch\"></i><br>运动手表'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">智能运动手表</h4>
+                        <p class="product-desc">心率监测，GPS定位，运动数据全掌握</p>
+                        <div class="product-price">¥799</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 野营设备 -->
+    <section id="camping" class="product-category">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="category-title wow fadeInUp">
+                    <i class="fas fa-mountain"></i> 野营设备
+                </h2>
+                <p class="category-subtitle wow fadeInUp" data-wow-delay="0.2s">
+                    拥抱自然，享受户外
+                </p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="product-image">
+                        <img src="images/products/camping/tents/camping-tent-01.jpg" alt="露营帐篷" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-campground\"></i><br>露营帐篷'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">防水露营帐篷</h4>
+                        <p class="product-desc">防风防雨，快速搭建，户外露营必备</p>
+                        <div class="product-price">¥499</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+                <div class="product-card wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="product-image">
+                        <img src="images/products/camping/cookware/portable-stove-01.jpg" alt="便携炉具" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-fire\"></i><br>便携炉具'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">便携式炉具</h4>
+                        <p class="product-desc">轻量便携，快速点火，野外烹饪好帮手</p>
+                        <div class="product-price">¥159</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+                <div class="product-card wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="product-image">
+                        <img src="images/products/camping/lighting/led-lantern-01.jpg" alt="LED营地灯" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\"fas fa-lightbulb\"></i><br>LED营地灯'">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">LED营地灯</h4>
+                        <p class="product-desc">超亮LED灯，长续航电池，夜间照明首选</p>
+                        <div class="product-price">¥89</div>
+                        <button class="product-btn">查看详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright © 2024 优品电商 Co. Ltd. All Rights Reserved. 优品电子商务有限公司 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        $(function(){
+            new WOW().init();
+            
+            // 平滑滚动到分类
+            $('.category-nav a').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this.getAttribute('href'));
+                if(target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 80
+                    }, 1000);
+                    
+                    // 更新导航状态
+                    $('.category-nav a').removeClass('active');
+                    $(this).addClass('active');
+                }
+            });
+            
+            // 滚动时更新导航状态
+            $(window).scroll(function() {
+                var scrollTop = $(window).scrollTop();
+                $('.product-category').each(function() {
+                    var topDistance = $(this).offset().top - 150;
+                    if (scrollTop >= topDistance) {
+                        var sectionId = $(this).attr('id');
+                        $('.category-nav a').removeClass('active');
+                        $('.category-nav a[href="#' + sectionId + '"]').addClass('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

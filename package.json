@@ -1,0 +1,19 @@
+{
+  "name": "youpin-ecommerce-website",
+  "version": "1.0.0",
+  "description": "优品电商官方网站",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "build:win": "build.bat",
+    "build:unix": "chmod +x build.sh && ./build.sh",
+    "serve": "npx http-server dist -p 8080 -o",
+    "deploy": "npm run build && echo '构建完成，请将dist目录内容上传到服务器'"
+  },
+  "keywords": ["ecommerce", "website", "static"],
+  "author": "优品电商",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+} 
